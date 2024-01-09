@@ -1,0 +1,17 @@
+name: cashu
+description: Library for cashu wallets
+version: 0.1.0
+repository: https://github.com/ryzizub/cashu
+
+environment:
+  sdk: ^3.2.0
+  
+dependencies:
+  convert: ^3.1.1
+  crypto: ^3.0.3
+  pointycastle: ^3.7.3
+  typed_data: ^1.3.2
+
+dev_dependencies:
+  flutter_lints: ^3.0.1
+  test: ^1.14.4
