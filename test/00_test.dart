@@ -84,28 +84,31 @@ void main() {
 
     test('Serialization', () async {
       const json = {
-        'token': [
+        "token": [
           {
-            'mint': 'https://8333.space:3338',
-            'proofs': [
+            "mint": "https://8333.space:3338",
+            "proofs": [
               {
-                'id': 'DSAl9nvvyfva',
-                'amount': 2,
-                'secret': 'EhpennC9qB3iFlW8FZ_pZw',
-                'C': '02c020067db727d586bc3183aecf97fcb'
-                    '800c3f4cc4759f69c626c9db5d8f5b5d4',
+                "amount": 2,
+                "id": "009a1f293253e41e",
+                "secret": "407915bc212be61a77e3e6d2aeb4c727980bda51cd06a6afc29"
+                    "e2861768a7837",
+                "C": "02bc9097997d81afb2cc7346b5e4345a9346bd2a506eb795859"
+                    "8a72f0cf85163ea"
               },
               {
-                'id': 'DSAl9nvvyfva',
-                'amount': 8,
-                'secret': 'TmS6Cv0YT5PU_5ATVKnukw',
-                'C': '02ac910bef28cbe5d7325415d5c263026f15f9'
-                    'b967a079ca9779ab6e5c2db133a7',
+                "amount": 8,
+                "id": "009a1f293253e41e",
+                "secret": "fe15109314e61d7756b0f8ee0f23a624acaa3f4e042f6143"
+                    "3c728c7057b931be",
+                "C": "029e8e5050b890a7d6c0968db16bc1d5d5fa040ea1de284f6ec69"
+                    "d61299f671059"
               }
-            ],
+            ]
           }
         ],
-        'memo': 'Thank you.',
+        "unit": "sat",
+        "memo": "Thank you."
       };
 
       final token = CashuToken.fromJson(json);
@@ -113,14 +116,16 @@ void main() {
       final serialized = token.serialize();
 
       const expectedResult =
-          'cashuAeyJ0b2tlbiI6W3sibWludCI6Imh0dHBzOi8vODMzMy5zcGFjZTozMzM4Iiwi'
-          'cHJvb2ZzIjpbeyJpZCI6IkRTQWw5bnZ2eWZ2YSIsImFtb3VudCI6Miwic2VjcmV0Ijo'
-          'iRWhwZW5uQzlxQjNpRmxXOEZaX3BadyIsIkMiOiIwMmMwMjAwNjdkYjcyN2Q1ODZiYz'
-          'MxODNhZWNmOTdmY2I4MDBjM2Y0Y2M0NzU5ZjY5YzYyNmM5ZGI1ZDhmNWI1ZDQifSx7I'
-          'mlkIjoiRFNBbDludnZ5ZnZhIiwiYW1vdW50Ijo4LCJzZWNyZXQiOiJUbVM2Q3YwWVQ'
-          '1UFVfNUFUVktudWt3IiwiQyI6IjAyYWM5MTBiZWYyOGNiZTVkNzMyNTQxNWQ1YzI2Mz'
-          'AyNmYxNWY5Yjk2N2EwNzljYTk3NzlhYjZlNWMyZGIxMzNhNyJ9XX1dLCJtZW1vIjoiVG'
-          'hhbmt5b3UuIn0';
+          'cashuAeyJ0b2tlbiI6W3sibWludCI6Imh0dHBzOi8vODMzMy5zcGFjZTozMzM4Iiwic'
+          'HJvb2ZzIjpbeyJhbW91bnQiOjIsImlkIjoiMDA5YTFmMjkzMjUzZTQxZSIsInNlY3Jl'
+          'dCI6IjQwNzkxNWJjMjEyYmU2MWE3N2UzZTZkMmFlYjRjNzI3OTgwYmRhNTFjZDA2YTZ'
+          'hZmMyOWUyODYxNzY4YTc4MzciLCJDIjoiMDJiYzkwOTc5OTdkODFhZmIyY2M3MzQ2Yj'
+          'VlNDM0NWE5MzQ2YmQyYTUwNmViNzk1ODU5OGE3MmYwY2Y4NTE2M2VhIn0seyJhbW91b'
+          'nQiOjgsImlkIjoiMDA5YTFmMjkzMjUzZTQxZSIsInNlY3JldCI6ImZlMTUxMDkzMTRl'
+          'NjFkNzc1NmIwZjhlZTBmMjNhNjI0YWNhYTNmNGUwNDJmNjE0MzNjNzI4YzcwNTdiOTM'
+          'xYmUiLCJDIjoiMDI5ZThlNTA1MGI4OTBhN2Q2YzA5NjhkYjE2YmMxZDVkNWZhMDQwZW'
+          'ExZGUyODRmNmVjNjlkNjEyOTlmNjcxMDU5In1dfV0sInVuaXQiOiJzYXQiLCJtZW1vI'
+          'joiVGhhbmsgeW91LiJ9';
 
       expect(serialized, expectedResult);
     });

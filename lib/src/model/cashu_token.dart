@@ -38,7 +38,7 @@ class CashuToken {
   String serialize() {
     final json = toJson();
 
-    final base64url = jsonToBase64(json);
+    final base64url = encodeJsonToBase64(json);
 
     final token = '$kTokenPrefix$kTokenVersion3$base64url';
     return token;

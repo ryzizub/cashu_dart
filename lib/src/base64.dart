@@ -1,19 +1,29 @@
 import 'dart:convert';
+import 'dart:typed_data';
 
-String base64UrlToBase64(String base64Url) {
-  return base64Url.replaceAll('_', '/').replaceAll('-', '+');
+String encodeUint8toBase64(Uint8List uint8list) {
+  return base64Encode(uint8list);
 }
 
-String base64ToBase64Url(String base64) {
-  return base64.replaceAll('+', '-').replaceAll('/', '_');
+Uint8List encodeBase64toUint8(String base64String) {
+  return base64Decode(base64String);
 }
 
-Map<String, dynamic> base64toJson(String base64) {
-  // Directly decode the Base64 string, which may include padding characters
-  return jsonDecode(utf8.decode(base64Decode(base64))) as Map<String, dynamic>;
+String encodeJsonToBase64(dynamic jsonObj) {
+  String jsonString = json.encode(jsonObj);
+  return base64urlFromBase64(base64Encode(utf8.encode(jsonString)));
 }
 
-String jsonToBase64(Map<String, dynamic> json) {
-  // Encode the JSON to a UTF-8 byte array, then to a standard Base64 string
-  return base64Encode(utf8.encode(jsonEncode(json)));
+Map<String, dynamic> encodeBase64ToJson(String base64String) {
+  String jsonString =
+      utf8.decode(base64Decode(base64urlToBase64(base64String)));
+  return json.decode(jsonString);
+}
+
+String base64urlToBase64(String str) {
+  return str.replaceAll('-', '+').replaceAll('_', '/');
+}
+
+String base64urlFromBase64(String str) {
+  return str.replaceAll('+', '-').replaceAll('/', '_').split('=')[0];
 }

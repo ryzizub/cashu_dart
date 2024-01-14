@@ -19,9 +19,7 @@ class Cashu {
 
     final base64Dirty = serialized.substring(kTokenPrefix.length + 1);
 
-    final cleanedBase64url = base64UrlToBase64(base64Dirty);
-
-    final json = base64toJson(cleanedBase64url);
+    final json = encodeBase64ToJson(base64Dirty);
 
     return CashuToken.fromJson(json);
   }

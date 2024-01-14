@@ -22,8 +22,8 @@ class Proof {
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
       'amount': amount,
+      'id': id,
       'secret': secret,
       'C': C,
     };
