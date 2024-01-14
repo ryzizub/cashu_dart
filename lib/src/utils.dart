@@ -12,7 +12,7 @@ ECPoint hashToCurve(Uint8List secret) {
     try {
       point = pointFromHex(pointX);
     } catch (e) {
-      print(e);
+      secret = sha256(secret);
     }
   }
   return point;
