@@ -9,6 +9,14 @@ extension StringX on String? {
   ECPoint? get point => this == null ? null : _pointFromHex(this!);
 }
 
+extension ECPointXX on ECPoint {
+  String get hex => hexEncode(getEncoded());
+}
+
+extension StringXx on String {
+  ECPoint get point => _pointFromHex(this);
+}
+
 ECPoint _pointFromHex(String hex) {
   return ECDomainParameters('secp256k1').curve.decodePoint(hexDecode(hex))!;
 }

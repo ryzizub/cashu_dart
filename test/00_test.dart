@@ -46,7 +46,7 @@ void main() {
           '0000000000000000000000000000000000000000000000000000000000000001';
       const expectedResult =
           "02a9acc1e48c25eeeb9289b5031cc57da9fe72f3fe2861d264bdc074209b107ba2";
-      final point = getBlindingPoint(x, blindingFactor: r);
+      final point = getBlindingMessagePoint(x, blindingFactor: r);
 
       expect(point.hex, matches(expectedResult));
     });
@@ -57,9 +57,50 @@ void main() {
           '6d7e0abffc83267de28ed8ecc8760f17697e51252e13333ba69b4ddad1f95d05';
       const expectedResult =
           "0249eb5dbb4fac2750991cf18083388c6ef76cde9537a6ac6f3e6679d35cdf4b0c";
-      final point = getBlindingPoint(x, blindingFactor: r);
+      final point = getBlindingMessagePoint(x, blindingFactor: r);
 
       expect(point.hex, matches(expectedResult));
+    });
+  });
+
+  group('Blinded keys', () {
+    test('Test 1 (hex encoded)', () async {
+      const mintPrivateKey =
+          '0000000000000000000000000000000000000000000000000000000000000001';
+      const x = 'test_message';
+      const r =
+          '0000000000000000000000000000000000000000000000000000000000000001';
+      const expectedResult =
+          "02a9acc1e48c25eeeb9289b5031cc57da9fe72f3fe2861d264bdc074209b107ba2";
+      final pointBlinding = getBlindingMessagePoint(x, blindingFactor: r);
+
+      expect(pointBlinding.hex, matches(expectedResult));
+
+      final pointBlindedKey =
+          getBlindedKeyPoint(pointBlinding.hex!, mintPrivateKey);
+
+      expect(pointBlindedKey.hex, matches(expectedResult));
+    });
+
+    test('Test 2 (hex encoded)', () async {
+      const mintPrivateKey =
+          '7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f';
+      const x = 'test_message';
+      const r =
+          '0000000000000000000000000000000000000000000000000000000000000001';
+      const expectedResult =
+          "02a9acc1e48c25eeeb9289b5031cc57da9fe72f3fe2861d264bdc074209b107ba2";
+      const expectedResultKey =
+          '0398bc70ce8184d27ba89834d19f5199c84443c31131e48d3c1214db24247d005d';
+
+      final pointBlinding = getBlindingMessagePoint(x, blindingFactor: r);
+
+      expect(pointBlinding.hex, matches(expectedResult));
+
+      final pointBlindedKey =
+          getBlindedKeyPoint(pointBlinding.hex!, mintPrivateKey);
+
+      expect(pointBlindedKey.hex, matches(expectedResultKey));
     });
   });
 

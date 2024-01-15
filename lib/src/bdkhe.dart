@@ -25,7 +25,8 @@ ECPoint hashHexToCurve(String secret) {
   return hashToCurve(hexDecode(secret));
 }
 
-ECPoint? getBlindingPoint(String secret, {String? blindingFactor}) {
+// B_
+ECPoint? getBlindingMessagePoint(String secret, {String? blindingFactor}) {
   final y = hashToCurve(utf8.encode(secret));
 
   if (blindingFactor == null) {
@@ -37,6 +38,13 @@ ECPoint? getBlindingPoint(String secret, {String? blindingFactor}) {
   final blinding = y + rG;
 
   return blinding;
+}
+
+// C_
+ECPoint? getBlindedKeyPoint(String blinding, String privateMintKey) {
+  final blindingPoint = blinding.point;
+
+  return blindingPoint * BigInt.parse("0x$privateMintKey");
 }
 
 // Utils
