@@ -1,6 +1,7 @@
 import 'package:cashu/cashu.dart';
 import 'package:cashu/src/model/cashu_token.dart';
 import 'package:cashu/src/bdkhe.dart';
+import 'package:cashu/src/utils/extensions/point.dart';
 import 'package:test/test.dart';
 
 /// Tests are based on the following test vectors:
@@ -12,9 +13,9 @@ void main() {
           '0000000000000000000000000000000000000000000000000000000000000000';
       const expectedPoint =
           '0266687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925';
-      final point = hashHexToCurveHex(x);
+      final point = hashHexToCurve(x);
 
-      expect(point, matches(expectedPoint));
+      expect(point.hex, matches(expectedPoint));
     });
 
     test('Test 2 (hex encoded)', () async {
@@ -22,9 +23,9 @@ void main() {
           '0000000000000000000000000000000000000000000000000000000000000001';
       const expectedPoint =
           '02ec4916dd28fc4c10d78e287ca5d9cc51ee1ae73cbfde08c6b37324cbfaac8bc5';
-      final point = hashHexToCurveHex(x);
+      final point = hashHexToCurve(x);
 
-      expect(point, matches(expectedPoint));
+      expect(point.hex, matches(expectedPoint));
     });
 
     test('Test 3 (hex encoded)', () async {
@@ -32,9 +33,9 @@ void main() {
           '0000000000000000000000000000000000000000000000000000000000000002';
       const expectedPoint =
           '02076c988b353fcbb748178ecb286bc9d0b4acf474d4ba31ba62334e46c97c416a';
-      final point = hashHexToCurveHex(x);
+      final point = hashHexToCurve(x);
 
-      expect(point, matches(expectedPoint));
+      expect(point.hex, matches(expectedPoint));
     });
   });
 
@@ -45,9 +46,9 @@ void main() {
           '0000000000000000000000000000000000000000000000000000000000000001';
       const expectedResult =
           "02a9acc1e48c25eeeb9289b5031cc57da9fe72f3fe2861d264bdc074209b107ba2";
-      final point = getBlindingHex(x, blindingFactor: r);
+      final point = getBlindingPoint(x, blindingFactor: r);
 
-      expect(point, matches(expectedResult));
+      expect(point.hex, matches(expectedResult));
     });
 
     test('Test 2 (hex encoded)', () async {
@@ -56,9 +57,9 @@ void main() {
           '6d7e0abffc83267de28ed8ecc8760f17697e51252e13333ba69b4ddad1f95d05';
       const expectedResult =
           "0249eb5dbb4fac2750991cf18083388c6ef76cde9537a6ac6f3e6679d35cdf4b0c";
-      final point = getBlindingHex(x, blindingFactor: r);
+      final point = getBlindingPoint(x, blindingFactor: r);
 
-      expect(point, matches(expectedResult));
+      expect(point.hex, matches(expectedResult));
     });
   });
 
