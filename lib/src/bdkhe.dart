@@ -47,6 +47,16 @@ ECPoint? getBlindedKeyPoint(String blinding, String privateMintKey) {
   return blindingPoint * BigInt.parse("0x$privateMintKey");
 }
 
+// C
+String? getUnblindedKey(String privateKey, String publicMintKey) {
+  final privateKeyPoint = privateKey.point;
+  final publicMintKeyPoint = publicMintKey.point;
+
+  final unblindedKeyPoint = privateKeyPoint - publicMintKeyPoint;
+
+  return unblindedKeyPoint.hex;
+}
+
 // Utils
 
 Uint8List _sha256(Uint8List data) {

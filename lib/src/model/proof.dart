@@ -29,3 +29,5 @@ class Proof {
     };
   }
 }
+
+typedef Proofs = List<Proof>;
