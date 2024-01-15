@@ -1,4 +1,4 @@
-import 'package:cashu/src/base64.dart';
+import 'package:cashu/src/utils/base64.dart';
 import 'package:cashu/src/constants.dart';
 import 'package:cashu/src/model/token.dart';
 
