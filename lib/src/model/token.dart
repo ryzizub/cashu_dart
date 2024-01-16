@@ -1,4 +1,4 @@
-import 'package:cashu/src/model/proof.dart';
+import 'package:cashu_dart/src/model/proof.dart';
 
 class Token {
   Token({

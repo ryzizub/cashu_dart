@@ -1,5 +1,5 @@
 import 'package:pointycastle/export.dart';
-import 'package:cashu/src/utils/hex.dart';
+import 'package:cashu_dart/src/utils/hex.dart';
 
 extension ECPointX on ECPoint? {
   String? get hex => this == null ? null : hexEncode(this!.getEncoded());

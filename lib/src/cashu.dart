@@ -1,6 +1,6 @@
-import 'package:cashu/src/utils/base64.dart';
-import 'package:cashu/src/constants.dart';
-import 'package:cashu/src/model/cashu_token.dart';
+import 'package:cashu_dart/src/utils/base64.dart';
+import 'package:cashu_dart/src/constants.dart';
+import 'package:cashu_dart/src/model/cashu_token.dart';
 
 class Cashu {
   static CashuToken getDecodedToken(String serialized) {

@@ -1,4 +1,4 @@
-### Cashu
+### cashu_dart
 
 [![License: MIT][license_badge]][license_link]
 

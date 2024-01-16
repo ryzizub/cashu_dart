@@ -1,6 +1,6 @@
-import 'package:cashu/src/utils/base64.dart';
-import 'package:cashu/src/constants.dart';
-import 'package:cashu/src/model/token.dart';
+import 'package:cashu_dart/src/utils/base64.dart';
+import 'package:cashu_dart/src/constants.dart';
+import 'package:cashu_dart/src/model/token.dart';
 
 class CashuToken {
   CashuToken({

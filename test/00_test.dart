@@ -1,7 +1,7 @@
-import 'package:cashu/cashu.dart';
-import 'package:cashu/src/model/cashu_token.dart';
-import 'package:cashu/src/bdkhe.dart';
-import 'package:cashu/src/utils/extensions/point.dart';
+import 'package:cashu_dart/cashu.dart';
+import 'package:cashu_dart/src/model/cashu_token.dart';
+import 'package:cashu_dart/src/bdkhe.dart';
+import 'package:cashu_dart/src/utils/extensions/point.dart';
 import 'package:test/test.dart';
 
 /// Tests are based on the following test vectors:

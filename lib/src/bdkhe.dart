@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
-import 'package:cashu/src/utils/extensions/point.dart';
-import 'package:cashu/src/utils/hex.dart';
+import 'package:cashu_dart/src/utils/extensions/point.dart';
+import 'package:cashu_dart/src/utils/hex.dart';
 import 'package:pointycastle/export.dart';
 
 final _secp256k1 = ECDomainParameters('secp256k1');
