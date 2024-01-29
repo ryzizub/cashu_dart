@@ -9,5 +9,3 @@ class BlindedMessage {
   final String id;
   final String B_;
 }
-
-typedef BlindedMessages = List<BlindedMessage>;
