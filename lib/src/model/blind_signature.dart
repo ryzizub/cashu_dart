@@ -8,4 +8,12 @@ class BlindSignature {
   final int amount;
   final String id;
   final String C_;
+
+  factory BlindSignature.fromJson(Map<String, dynamic> json) {
+    return BlindSignature(
+      amount: json['amount'] as int,
+      id: json['id'] as String,
+      C_: json['C_'] as String,
+    );
+  }
 }

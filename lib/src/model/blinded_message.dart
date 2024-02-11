@@ -8,4 +8,12 @@ class BlindedMessage {
   final int amount;
   final String id;
   final String B_;
+
+  Map<String, dynamic> toJson() {
+    return {
+      'amount': amount,
+      'id': id,
+      'B_': B_,
+    };
+  }
 }
