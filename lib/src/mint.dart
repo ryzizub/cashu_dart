@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:cashu_dart/src/model/request/post_mint_bolt11.dart';
 import 'package:cashu_dart/src/model/request/post_mint_quote_bolt11.dart';
 import 'package:cashu_dart/src/model/request/post_swap.dart';
+import 'package:cashu_dart/src/model/response/get_info.dart';
 import 'package:cashu_dart/src/model/response/get_keys.dart';
 import 'package:cashu_dart/src/model/response/get_keysets.dart';
 import 'package:cashu_dart/src/model/response/post_mint_bolt11.dart';
@@ -133,5 +134,11 @@ class CashuMint {
         ? PostMintBolt11Response.fromJson(requestedData)
         : null;
     return respon;
+  }
+
+  Future<GetInfoResponse> getInfo() async {
+    final requestedData = await request('$url/v1/info', 'GET', null);
+
+    return GetInfoResponse.fromJson(requestedData!);
   }
 }
