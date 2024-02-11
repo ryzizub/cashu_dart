@@ -1,4 +1,5 @@
 import 'package:cashu_dart/src/model/response/get_keys.dart';
+import 'package:cashu_dart/src/model/response/get_keysets.dart';
 import 'package:cashu_dart/src/utils/request.dart';
 
 /// Class that handles Cashu Mint API.
@@ -24,5 +25,11 @@ class CashuMint {
     final respon =
         requestedData != null ? GetKeysResponse.fromJson(requestedData) : null;
     return respon;
+  }
+
+  Future<GetKeysetsResponse> getKeysets() async {
+    final requestedData = await request('$url/v1/keysets', 'GET', null);
+
+    return GetKeysetsResponse.fromJson(requestedData!);
   }
 }
