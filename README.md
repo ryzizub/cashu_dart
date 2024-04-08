@@ -1,5 +1,7 @@
 ### cashu_dart
 
+Check the library that is actively maintained: https://github.com/0xchat-app/cashu-dart 🧡
+
 [![License: MIT][license_badge]][license_link]
 
 ⚠️ **Warning:** This project is work in progress
